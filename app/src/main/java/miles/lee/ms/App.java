@@ -24,6 +24,7 @@ public class App extends Application{
     private Set<Activity> allActivities;
     @Override
     public void onCreate(){
+        super.onCreate();
         app = this;
         if (!LeakCanary.isInAnalyzerProcess(App.getInstance())) {
             LeakCanary.install(App.getInstance());
