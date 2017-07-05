@@ -1,0 +1,22 @@
+ext{
+    android = [
+            compileSdkVersion : 25,
+            buildToolsVersion : '25.0.2',
+            applicationId     : "miles.lee.ms",
+            minSdkVersion     : 17,
+            targetSdkVersion  : 25
+    ]
+    def dependVersion = [
+            support     : "25.1.1",
+//            retrofit    : "2.2.0",
+//            okhttp      : "3.6.0",
+//            butterknife : "8.5.1",
+            leakcanary  : "1.5",
+    ]
+
+    dependencies = [
+            // 内存溢出检测
+            "leakcanary-android"        : "com.squareup.leakcanary:leakcanary-android:${dependVersion.leakcanary}",
+            "leakcanary-android-no-op"  : "com.squareup.leakcanary:leakcanary-android-no-op:${dependVersion.leakcanary}"
+    ]
+}

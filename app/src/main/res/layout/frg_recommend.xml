@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tl="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+    <RelativeLayout
+        android:id="@+id/rl_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <com.flyco.tablayout.SlidingTabLayout
+            android:id="@+id/tl"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y120"
+            android:background="@android:color/white"
+            tl:tl_indicator_color="@color/blue_light"
+            tl:tl_indicator_margin_left="@dimen/x15"
+            tl:tl_indicator_margin_right="@dimen/x15"
+            tl:tl_indicator_style="BLOCK"
+            tl:tl_indicator_width_equal_title="true"
+            tl:tl_textSelectColor="@android:color/white"
+            tl:tl_textUnselectColor="@color/black_33"
+            tl:tl_textsize="@dimen/x40"
+            />
+        <miles.lee.ms.ui.widget.CustomerViewPager
+            android:id="@+id/vp_recommend"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/tl" />
+    </RelativeLayout>
+</FrameLayout>

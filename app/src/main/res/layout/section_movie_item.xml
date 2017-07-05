@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/item_container"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/grid_item_img"
+        android:background="@color/gray"
+        android:layout_width="match_parent"
+        android:layout_height="200dp" />
+    <TextView
+        android:id="@+id/grid_item_right_text"
+        android:layout_width="40dp"
+        android:layout_alignBottom="@id/grid_item_img"
+        android:layout_alignRight="@id/grid_item_img"
+        android:background="@color/black_66"
+        android:layout_height="20dp" />
+    <TextView
+        android:id="@+id/grid_item_text"
+        android:layout_below="@id/grid_item_img"
+        android:textSize="14sp"
+        android:layout_marginTop="2dp"
+        android:text="谁去啦"
+        android:textColor="@color/black_66"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+</RelativeLayout>

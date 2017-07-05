@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:background="@drawable/recommend_item_bg_1"
+    >
+    <TextView
+        android:id="@+id/tv_more"
+        android:textColor="@color/blue"
+        android:text="更多"
+        android:textSize="15sp"
+        android:paddingTop="@dimen/y30"
+        android:paddingBottom="@dimen/x30"
+        android:drawablePadding="@dimen/x10"
+        android:gravity="center"
+        android:drawableRight="@mipmap/ic_more"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <View
+        android:id="@+id/line"
+        android:layout_marginLeft="@dimen/x150"
+        android:layout_marginRight="@dimen/x150"
+        android:layout_width="1dp"
+        android:layout_height="@dimen/x44"
+        android:background="@color/gray"
+        />
+
+    <TextView
+        android:id="@+id/tv_other"
+        android:textColor="@color/blue"
+        android:text="换一批"
+        android:textSize="15sp"
+        android:paddingTop="@dimen/y30"
+        android:paddingBottom="@dimen/x30"
+        android:drawablePadding="@dimen/x10"
+        android:gravity="center"
+        android:drawableRight="@mipmap/ic_refresh"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+</LinearLayout>

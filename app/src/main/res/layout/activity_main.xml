@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/top_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:orientation="horizontal"
+        android:paddingBottom="@dimen/top_bar_bottom_margin"
+        android:paddingTop="30dp">
+
+        <TextView
+            android:id="@+id/location_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/x20"
+            android:drawablePadding="@dimen/x10"
+            android:drawableRight="@mipmap/ic_arrow_down"
+            android:gravity="center"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/search_tv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/x20"
+            android:layout_marginRight="@dimen/x20"
+            android:layout_weight="1"
+            android:background="@drawable/ic_search_bg"
+            android:drawableLeft="@mipmap/ic_search"
+            android:ellipsize="end"
+            android:gravity="center_vertical"
+            android:maxLines="1"
+            android:hint="搜索经常"
+            android:textColorHint="@android:color/white"
+            android:padding="5dp"
+            android:textColor="@android:color/white"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/connect_dev_tv_1"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginRight="@dimen/x10"
+            android:drawableLeft="@mipmap/ic_connect"
+            android:drawablePadding="@dimen/x10"
+            android:gravity="center"
+            android:text="扫一扫"
+            android:textColor="@android:color/white"
+            android:textSize="16sp" />
+    </LinearLayout>
+    <!--<com.flyco.tablayout.CommonTabLayout
+        xmlns:tl="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/tabLayout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y160"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/bottom_bar_bg"
+        android:paddingLeft="@dimen/x70"
+        android:paddingRight="@dimen/x70"
+        tl:tl_iconHeight="@dimen/x60"
+        tl:tl_iconWidth="@dimen/x60"
+        tl:tl_indicator_height="0dp"
+        tl:tl_indicator_margin_left="@dimen/x70"
+        tl:tl_indicator_margin_right="@dimen/x70"
+        tl:tl_textSelectColor="#01ADDF"
+        tl:tl_textUnselectColor="#BDBDBD"
+        tl:tl_textsize="@dimen/x40"/>-->
+    <com.ashokvarma.bottomnavigation.BottomNavigationBar
+        android:id="@+id/bottom_navigation_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true" />
+
+    <miles.lee.ms.ui.widget.PPfunsViewPager
+        android:id="@+id/view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/bottom_navigation_bar"
+        android:layout_below="@+id/top_bar" />
+</RelativeLayout>

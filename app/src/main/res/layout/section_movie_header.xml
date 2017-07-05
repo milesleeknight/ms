@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:paddingBottom="1dp"
+    android:layout_height="wrap_content">
+    <ImageView
+        android:id="@+id/iv_cate"
+        android:src="@mipmap/ic_pw_show"
+        android:layout_width="@dimen/x80"
+        android:layout_height="@dimen/y80" />
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/y80"
+        android:layout_toRightOf="@+id/iv_cate"
+        android:layout_marginLeft="@dimen/x10"
+        android:gravity="center"
+        android:textColor="@color/black_66"
+        android:textSize="17sp"/>
+
+    <TextView
+        android:id="@+id/tv_link"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/y80"
+        android:layout_alignBottom="@+id/tv_title"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/tv_title"
+        android:layout_marginRight="@dimen/x10"
+        android:gravity="center"
+        android:textColor="@color/gray_90"
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/tv_info_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_title"
+        android:layout_marginLeft="@dimen/x30"
+        android:layout_marginTop="@dimen/y33"
+        android:drawablePadding="@dimen/x20"
+        android:gravity="center"
+        android:drawableLeft="@mipmap/ic_fiery"
+        android:textColor="@color/gray_90"
+        android:text="传聚视互娱公司2年内登陆纳斯达克或创奇迹"
+        android:maxLines="1"
+        android:ellipsize="end"
+        android:textSize="15sp"/>
+
+    <TextView
+        android:id="@+id/tv_info_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_info_1"
+        android:layout_marginLeft="@dimen/x30"
+        android:layout_marginTop="@dimen/y20"
+        android:drawablePadding="@dimen/x20"
+        android:gravity="center"
+        android:drawableLeft="@mipmap/ic_fiery"
+        android:textColor="@color/gray_90"
+        android:text="教育部回应废除985、211:拟年内启动双一流撤销名校效应"
+        android:maxLines="1"
+        android:ellipsize="end"
+        android:textSize="15sp"/>
+</RelativeLayout>

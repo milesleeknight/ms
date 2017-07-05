@@ -1,0 +1,22 @@
+<resources>
+
+    <style name="AppTheme" parent="@style/BaseAppTheme">
+        <item name="android:windowTranslucentStatus">true</item>
+    </style>
+
+    <!-- 启动页 引导页设置StatusBar为透明色 -->
+    <style name="ColorTranslucentTheme" parent="@style/BaseAppTheme">
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:windowTranslucentNavigation">true</item>
+    </style>
+
+    <!--主界面 设置Style-->
+    <style name="MainActivityColorTranslucentTheme" parent="@style/BaseAppTheme">
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:windowTranslucentNavigation">false</item>
+    </style>
+
+    <!--盒子分享 设置Style-->
+    <style name="StbSharePageTheme" parent="@style/MainActivityColorTranslucentTheme"/>
+
+</resources>
