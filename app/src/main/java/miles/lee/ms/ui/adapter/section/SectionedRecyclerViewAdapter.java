@@ -280,7 +280,7 @@ public class SectionedRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerV
 //                    default:
 //                        throw new IllegalStateException("Invalid state");
 //                }
-
+                return viewType + section.getSectionType();
             }
 
             currentPos += sectionTotal;

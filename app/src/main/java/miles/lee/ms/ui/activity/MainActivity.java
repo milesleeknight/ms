@@ -1,5 +1,6 @@
 package miles.lee.ms.ui.activity;
 
+import android.util.SparseBooleanArray;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.TextView;
@@ -17,6 +18,7 @@ import miles.lee.ms.ui.fragment.MainRecommendFragment;
 import miles.lee.ms.ui.presenter.MainPresenter;
 import miles.lee.ms.ui.presenter.contract.MainContract;
 import miles.lee.ms.ui.widget.PPfunsViewPager;
+import miles.lee.ms.utils.LogUtil;
 import miles.lee.ms.utils.Tips;
 
 public class MainActivity extends PresenterActivity<MainPresenter> implements BottomNavigationBar.OnTabSelectedListener,MainContract.View{
@@ -74,6 +76,23 @@ public class MainActivity extends PresenterActivity<MainPresenter> implements Bo
     @Override
     public void onTabSelected(int position){
 
+    }
+
+    @Override
+    public void onTrimMemory(int level){
+        super.onTrimMemory(level);
+        switch(level){
+            case TRIM_MEMORY_UI_HIDDEN:
+                LogUtil.d("onTrimMemory");
+                break;
+        }
+        SparseBooleanArray array = new SparseBooleanArray();
+    }
+
+    @Override
+    protected void onStop(){
+        super.onStop();
+        LogUtil.d("onStop");
     }
 
     @Override

@@ -16,13 +16,24 @@
         android:layout_alignRight="@id/grid_item_img"
         android:background="@color/black_66"
         android:layout_height="20dp" />
+    <ViewStub
+        android:id="@+id/stub_progress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/grid_item_img"/>
     <TextView
         android:id="@+id/grid_item_text"
-        android:layout_below="@id/grid_item_img"
+        android:layout_below="@id/stub_progress"
         android:textSize="14sp"
         android:layout_marginTop="2dp"
         android:text="谁去啦"
         android:textColor="@color/black_66"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
+    <ViewStub
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/stub_progress"
+
+        android:layout_margin="@dimen/y20"/>
 </RelativeLayout>

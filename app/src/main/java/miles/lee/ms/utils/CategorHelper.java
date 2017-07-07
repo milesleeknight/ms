@@ -21,19 +21,18 @@ public class CategorHelper{
         return type;
     }
 
-    public static int getCategoryPagesize(int type){
-        int count = 0;
-        switch(type){
-            case Config.RecommendedType.POS_LOOP_IMG:
-                count = 5;
-                break;
-            case Config.RecommendedType.POS_FILM_OR_TV:
-                count = 7;
-                break;
-            default:
-                count = 13;
-                break;
+    public static int getCategorPageSize(int type,boolean hasFresh){
+
+        int pageSize;
+        if(hasFresh){
+            pageSize = 13;
+        }else if(type == Config.RecommendedType.POS_LOOP_IMG){
+            pageSize = 5;
+        }else if(type == Config.RecommendedType.POS_FILM_OR_TV){
+            pageSize = 7;
+        }else{
+            pageSize = 5;
         }
-        return count;
+        return pageSize;
     }
 }

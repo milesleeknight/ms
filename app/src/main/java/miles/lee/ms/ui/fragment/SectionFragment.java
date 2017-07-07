@@ -93,6 +93,6 @@ public class SectionFragment extends PresenterFragment<SectionPresenter> impleme
 
     @Override
     public void finishTask(){
-
+        mAdapter.notifyDataSetChanged();
     }
 }

@@ -7,6 +7,7 @@ import java.util.zip.DataFormatException;
 
 import io.reactivex.Flowable;
 import io.reactivex.annotations.NonNull;
+import io.reactivex.functions.Action;
 import io.reactivex.functions.BiFunction;
 import io.reactivex.functions.Consumer;
 import io.reactivex.functions.Function;
@@ -24,6 +25,7 @@ import miles.lee.ms.ui.adapter.section.HomeLoopImgSection;
 import miles.lee.ms.ui.adapter.section.HomeMovieSection;
 import miles.lee.ms.ui.presenter.contract.SectionContact;
 import miles.lee.ms.utils.CategorHelper;
+import miles.lee.ms.utils.LogUtil;
 import miles.lee.ms.utils.RxUtil;
 
 /**
@@ -88,32 +90,33 @@ public class SectionPresenter extends RxPresenter<SectionContact.View> implement
                             view.showError(throwable.getMessage());
                         }
                     }));
-        }else{
-            addSubscribe(SmiClient.getVodApi().getChannelSubType(item.getOperationTagId(), 1)
-                    .map(new Function<BaseCPResponse<List<SubTypeBean>>, List<SubTypeBean>>(){
-                        @Override
-                        public List<SubTypeBean> apply(@NonNull BaseCPResponse<List<SubTypeBean>>
-                                                               listBaseCPResponse) throws Exception{
-                            List<SubTypeBean> result = listBaseCPResponse.getData().getResult();
-                            if(result == null || result.isEmpty()){
-                                throw new DataFormatException("there is nothing in this channel~");
-                            }
-                            return result;
-                        }
-                    }).compose(RxUtil.<List<SubTypeBean>>rxSchedulerHelper())
-                    .subscribe(new Consumer<List<SubTypeBean>>(){
-                        @Override
-                        public void accept(@NonNull List<SubTypeBean> subTypeBeen) throws Exception{
-                            getSubyType(subTypeBeen);
-                        }
-                    }, new Consumer<Throwable>(){
-                        @Override
-                        public void accept(@NonNull Throwable throwable) throws Exception{
-                            throwable.printStackTrace();
-                            view.showError(throwable.getMessage());
-                        }
-                    }));
         }
+//        else{
+//            addSubscribe(SmiClient.getVodApi().getChannelSubType(item.getOperationTagId(), 1)
+//                    .map(new Function<BaseCPResponse<List<SubTypeBean>>, List<SubTypeBean>>(){
+//                        @Override
+//                        public List<SubTypeBean> apply(@NonNull BaseCPResponse<List<SubTypeBean>>
+//                                                               listBaseCPResponse) throws Exception{
+//                            List<SubTypeBean> result = listBaseCPResponse.getData().getResult();
+//                            if(result == null || result.isEmpty()){
+//                                throw new DataFormatException("there is nothing in this channel~");
+//                            }
+//                            return result;
+//                        }
+//                    }).compose(RxUtil.<List<SubTypeBean>>rxSchedulerHelper())
+//                    .subscribe(new Consumer<List<SubTypeBean>>(){
+//                        @Override
+//                        public void accept(@NonNull List<SubTypeBean> subTypeBeen) throws Exception{
+//                            getSubyType(subTypeBeen);
+//                        }
+//                    }, new Consumer<Throwable>(){
+//                        @Override
+//                        public void accept(@NonNull Throwable throwable) throws Exception{
+//                            throwable.printStackTrace();
+//                            view.showError(throwable.getMessage());
+//                        }
+//                    }));
+//        }
     }
 
     private void getSubyType(List<SubTypeBean> list){
@@ -125,7 +128,7 @@ public class SectionPresenter extends RxPresenter<SectionContact.View> implement
                             Exception{
                         int posType = subTypeBean.position;
                         int operationTagId = subTypeBean.operationTagId;
-                        int pageSize = CategorHelper.getCategoryPagesize(posType);
+                        int pageSize = CategorHelper.getCategorPageSize(posType, isFirstChannel);
                         return Flowable.zip(SmiClient.getVodApi().getChannelSubContent(1,
                                 pageSize, String.valueOf(operationTagId), 1)
                                 , Flowable.just(subTypeBean), new
@@ -176,10 +179,16 @@ public class SectionPresenter extends RxPresenter<SectionContact.View> implement
                 .subscribe(new Consumer<CategoryItem>(){
                     @Override
                     public void accept(@NonNull CategoryItem categoryItem) throws Exception{
+                        LogUtil.d("success___请求完成");
                     }
                 }, new Consumer<Throwable>(){
                     @Override
                     public void accept(@NonNull Throwable throwable) throws Exception{
+                    }
+                }, new Action(){
+                    @Override
+                    public void run() throws Exception{
+                        view.finishTask();
                     }
                 })
         );

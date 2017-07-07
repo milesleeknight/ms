@@ -3,6 +3,7 @@ package miles.lee.ms.ui.adapter.section;
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -14,7 +15,9 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import miles.lee.ms.App;
 import miles.lee.ms.R;
+import miles.lee.ms.component.Config;
 import miles.lee.ms.model.CategoryItem;
 import miles.lee.ms.model.ContentItem;
 import miles.lee.ms.utils.LogUtil;
@@ -28,6 +31,8 @@ public class HomeMovieSection extends StatelessSection{
     private Context mContext ;
     private CategoryItem item;
     private final int maxPage;
+    private int pageIndex;
+    private int pageSize;
 
     public HomeMovieSection(CategoryItem item , Context context){
         super(R.layout.section_movie_header,R.layout.section_movie_footer,R.layout.section_movie_item);
@@ -41,6 +46,11 @@ public class HomeMovieSection extends StatelessSection{
     }
 
     @Override
+    public int getSectionType(){
+        return SectionedRecyclerViewAdapter.VIEW_TYPE_FILM;
+    }
+
+    @Override
     public int getContentItemsTotal(){
         if(item == null){
             LogUtil.d("HomeMovieSection contentItem is null");
@@ -51,8 +61,14 @@ public class HomeMovieSection extends StatelessSection{
 
             return 0;
         }
+        if (pageIndex >= maxPage) {
+            pageIndex = maxPage - 1;
+        }
         LogUtil.d("HomeMovieSection contentItem :"+page.size());
-        return page.size();
+        pageSize = page.size();
+        int remainder = page.size() - 6 * pageIndex;
+        int count = (remainder > page.size() ? page.size() : remainder);
+        return count;
     }
 
     @Override
@@ -61,20 +77,35 @@ public class HomeMovieSection extends StatelessSection{
     }
 
     @Override
+    public RecyclerView.ViewHolder getHeaderViewHolder(View view){
+        return new HeaderViewHolder(view);
+    }
+
+    @Override
+    public RecyclerView.ViewHolder getFooterViewHolder(View view){
+        return new FootViewHolder(view);
+    }
+
+    @Override
     public void onBindItemViewHolder(RecyclerView.ViewHolder holder, int position){
+        final int realPosition = position + pageSize * pageIndex;
         ItemViewHolder itemViewHolder = (ItemViewHolder) holder;
-        List<ContentItem> page = item.getPage();
-        final ContentItem contentBean = page.get(position);
+        List<ContentItem> list = item.getPage();
+        final ContentItem contentBean = list.get(realPosition);
 
         Glide.with(mContext)
-                .load(contentBean.getPicUrl())
+                .load(contentBean.getBlueRayImg())
                 //                .centerCrop()
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .dontAnimate()
                 .into(itemViewHolder.grid_item_img);
 
         itemViewHolder.grid_item_tv.setText(contentBean.getContentName());
-        itemViewHolder.grid_item_right_tv.setText(contentBean.getPlayCounts()+"");
+        if(contentBean.getContentClass() == Config.RecommendedType.TYPE_FILM){
+            itemViewHolder.grid_item_right_tv.setText(contentBean.getScore());
+        }else{
+            itemViewHolder.grid_item_right_tv.setText("已更新至" + contentBean.getSubNum() + "集");
+        }
 //        itemViewHolder.item_container.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View view) {
@@ -176,13 +207,13 @@ public class HomeMovieSection extends StatelessSection{
 
             super(itemView);
             ButterKnife.bind(this, itemView);
-//            int padingpx = itemView.getContext().getResources().getDimensionPixelSize(R.dimen.x7);
-//            int parentPadingpx = itemView.getContext().getResources().getDimensionPixelSize(R.dimen.x9);
-//            item_container.setPadding(padingpx,padingpx,padingpx,padingpx);
-//            ViewGroup.LayoutParams layoutParams = grid_item_img.getLayoutParams();
-//            layoutParams.width = (App.SCREEN_WIDTH - 4*padingpx - 2*parentPadingpx)/2;
-//            layoutParams.height = layoutParams.width/16*9;
-//            grid_item_img.setLayoutParams(layoutParams);
+            int padingpx = itemView.getContext().getResources().getDimensionPixelSize(R.dimen.x7);
+            int parentPadingpx = itemView.getContext().getResources().getDimensionPixelSize(R.dimen.x9);
+            item_container.setPadding(padingpx,padingpx,padingpx,padingpx);
+            ViewGroup.LayoutParams layoutParams = grid_item_img.getLayoutParams();
+            layoutParams.width = (App.SCREEN_WIDTH - 4*padingpx - 2*parentPadingpx)/2;
+            layoutParams.height = layoutParams.width/16*9;
+            grid_item_img.setLayoutParams(layoutParams);
         }
     }
 
