@@ -157,15 +157,15 @@ public class HomeMovieSection extends StatelessSection{
                 .into(headerViewHolder.iv_cate);
 
         headerViewHolder.tv_title.setText(item.getCategoryName());
-//        if(keynote != null){
-//            headerViewHolder.tv_link.setText(keynote.getContentName() + ">");
+        if(keynote != null){
+            headerViewHolder.tv_link.setText(keynote.getContentName() + ">");
 //            headerViewHolder.tv_link.setOnClickListener(new View.OnClickListener() {
 //                @Override
 //                public void onClick(View view) {
 //                    VDetailActivity.launch(mContext,keynote.contentId,0);
 //                }
 //            });
-//        }
+        }
         headerViewHolder.tv_info_1.setVisibility(View.GONE);
         headerViewHolder.tv_info_2.setVisibility(View.GONE);
     }

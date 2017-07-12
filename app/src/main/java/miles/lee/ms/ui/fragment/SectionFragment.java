@@ -5,7 +5,6 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.widget.LinearLayout;
 
 import butterknife.BindView;
 import miles.lee.ms.R;
@@ -21,8 +20,6 @@ import miles.lee.ms.ui.presenter.contract.SectionContact;
  */
 
 public class SectionFragment extends PresenterFragment<SectionPresenter> implements SectionContact.View{
-    @BindView(R.id.ll_content)
-    LinearLayout linearLayout;
     @BindView(R.id.swipe_refresh)
     SwipeRefreshLayout refreshLayout;
     @BindView(R.id.recycler)
@@ -40,7 +37,7 @@ public class SectionFragment extends PresenterFragment<SectionPresenter> impleme
 
     @Override
     protected void initEventAndData(){
-        ChannelItem channelItem = (ChannelItem) getArguments().getSerializable("Channel");
+        ChannelItem channelItem = (ChannelItem) getArguments().get("Channel");
         mPresenter.initParams(channelItem);
         initView();
         mPresenter.loadData();
@@ -52,7 +49,8 @@ public class SectionFragment extends PresenterFragment<SectionPresenter> impleme
         layoutManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup(){
             @Override
             public int getSpanSize(int position){
-                switch(position){
+                int sectionItemViewType = mAdapter.getSectionItemViewType(position);
+                switch(sectionItemViewType){
                     case SectionedRecyclerViewAdapter.VIEW_TYPE_HEADER:
                     case SectionedRecyclerViewAdapter.VIEW_TYPE_FOOTER:
                         return 6;
