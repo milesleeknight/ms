@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.MotionEvent;
 import android.view.View;
 
 import butterknife.BindView;
@@ -25,6 +26,7 @@ public class SectionFragment extends PresenterFragment<SectionPresenter> impleme
     @BindView(R.id.recycler)
     RecyclerView recyclerView;
     private SectionedRecyclerViewAdapter mAdapter;
+    private boolean mIsRefreshing =false;
 
     public static SectionFragment newInstance(ChannelItem item){
         Bundle bundle = new Bundle();
@@ -40,10 +42,31 @@ public class SectionFragment extends PresenterFragment<SectionPresenter> impleme
         ChannelItem channelItem = (ChannelItem) getArguments().get("Channel");
         mPresenter.initParams(channelItem);
         initView();
-        mPresenter.loadData();
+    }
+
+    @Override
+    protected void onFirstUserVisible() {
+        refreshLayout.post(new Runnable() {
+            @Override
+            public void run() {
+                refreshLayout.setRefreshing(true);
+                mAdapter.removeAllSections();
+                mIsRefreshing = true;
+                mPresenter.loadData();
+            }
+        });
     }
 
     private void initView(){
+
+        refreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener(){
+            @Override
+            public void onRefresh(){
+                mAdapter.removeAllSections();
+                mPresenter.loadData();
+            }
+        });
+
         mAdapter = new SectionedRecyclerViewAdapter();
         GridLayoutManager layoutManager = new GridLayoutManager(mActivity,6);
         layoutManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup(){
@@ -61,8 +84,10 @@ public class SectionFragment extends PresenterFragment<SectionPresenter> impleme
                 }
             }
         });
+        recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(mAdapter);
+        setRecycleNoScroll();
     }
 
     @Override
@@ -91,6 +116,16 @@ public class SectionFragment extends PresenterFragment<SectionPresenter> impleme
 
     @Override
     public void finishTask(){
+        refreshLayout.setRefreshing(false);
+        mIsRefreshing = false;
         mAdapter.notifyDataSetChanged();
+    }
+    private void setRecycleNoScroll() {
+        recyclerView.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                return mIsRefreshing;
+            }
+        });
     }
 }

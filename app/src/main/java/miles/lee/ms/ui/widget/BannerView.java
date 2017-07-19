@@ -19,14 +19,15 @@ import java.util.concurrent.TimeUnit;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import io.reactivex.Flowable;
+import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.annotations.NonNull;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.functions.Consumer;
+import io.reactivex.schedulers.Schedulers;
 import miles.lee.ms.R;
 import miles.lee.ms.model.BannerItem;
 import miles.lee.ms.ui.adapter.BannerAdapter;
 import miles.lee.ms.utils.DensityUtil;
-import miles.lee.ms.utils.RxUtil;
 
 /**
  * 自定义Banner无限轮播控件
@@ -208,9 +209,8 @@ public class BannerView extends RelativeLayout implements BannerAdapter.ViewPage
         isStopScroll = false;
         compositeSubscription.add(
                 Flowable.timer(delayTime, TimeUnit.SECONDS)
-//                .subscribeOn(Schedulers.io())
-//                .observeOn(AndroidSchedulers.mainThread())
-                .compose(RxUtil.<Long>rxSchedulerHelper())
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Consumer<Long>() {
                     @Override
                     public void accept(@NonNull Long aLong) throws Exception {
@@ -242,7 +242,7 @@ public class BannerView extends RelativeLayout implements BannerAdapter.ViewPage
      */
     @Override
     public void onItemClick() {
-//        bannerList.get(currrentPos).getContentId()
+//        bannerList.get(currrentPos).getContentId();
 //        VDetailActivity.launch(getContext(),bannerList.get(currrentPos).contentId,0);
     }
 

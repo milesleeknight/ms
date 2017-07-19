@@ -1,7 +1,6 @@
 package miles.lee.ms.ui.fragment;
 
 import android.view.View;
-import android.widget.RelativeLayout;
 
 import com.flyco.tablayout.SlidingTabLayout;
 
@@ -20,10 +19,10 @@ import miles.lee.ms.ui.widget.CustomerViewPager;
  * Created by miles on 2017/5/27 0027.
  */
 
-public class MainRecommendFragment extends PresenterFragment<MainRecContract.Presenter> implements MainRecContract.View{
+public class MainRecommendFragment extends PresenterFragment<MainRecPresenter> implements MainRecContract.View{
 
     @BindView(R.id.rl_content)
-    RelativeLayout relativeLayout;
+    View relativeLayout;
     @BindView(R.id.tl)
     SlidingTabLayout slidingTabLayout;
     @BindView(R.id.vp_recommend)

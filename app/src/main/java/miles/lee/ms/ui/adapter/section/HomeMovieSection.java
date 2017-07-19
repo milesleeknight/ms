@@ -23,26 +23,25 @@ import miles.lee.ms.model.ContentItem;
 import miles.lee.ms.utils.LogUtil;
 
 /**
- * 两行两列布局
+ * 两行三列布局
  * Created by miles on 2017/6/28 0028.
  */
 
 public class HomeMovieSection extends StatelessSection{
     private Context mContext ;
     private CategoryItem item;
-    private final int maxPage;
+    private  int maxPage;
     private int pageIndex;
-    private int pageSize;
+    private int pageSize = 6;
 
-    public HomeMovieSection(CategoryItem item , Context context){
+    public HomeMovieSection(CategoryItem item, Context context, boolean isFirstChannel){
         super(R.layout.section_movie_header,R.layout.section_movie_footer,R.layout.section_movie_item);
-        this.mContext = context;
         if(item == null){
-            throw new NullPointerException("no Category data");
+            throw new NullPointerException("category is null...");
         }
         this.mContext = context;
         this.item = item;
-        maxPage = (int) Math.ceil((double)item.getPage().size()/4);
+        maxPage = (int) Math.ceil((double) item.getPage().size() / pageSize);// 算出总共分页，取大的值
     }
 
     @Override
@@ -64,10 +63,10 @@ public class HomeMovieSection extends StatelessSection{
         if (pageIndex >= maxPage) {
             pageIndex = maxPage - 1;
         }
-        LogUtil.d("HomeMovieSection contentItem :"+page.size());
-        pageSize = page.size();
-        int remainder = page.size() - 6 * pageIndex;
-        int count = (remainder > page.size() ? page.size() : remainder);
+
+        int size = page.size();
+        int remainder = size - pageSize * pageIndex;
+        int count = (remainder > pageSize ? pageSize : remainder);
         return count;
     }
 
@@ -95,9 +94,8 @@ public class HomeMovieSection extends StatelessSection{
 
         Glide.with(mContext)
                 .load(contentBean.getBlueRayImg())
-                //                .centerCrop()
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
-                .dontAnimate()
+//                .dontAnimate()
                 .into(itemViewHolder.grid_item_img);
 
         itemViewHolder.grid_item_tv.setText(contentBean.getContentName());
@@ -126,20 +124,20 @@ public class HomeMovieSection extends StatelessSection{
 //                VideoFilterActivity.launch(mContext,category.getCategorySubType(),category.getCategoryType());
 //            }
 //        });
-//        footViewHolder.tv_refresh.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                if(maxPage <= 1){
-//                    return;
-//                }
-//                if (pageIndex == maxPage - 1) {
-//                    pageIndex = 0;
-//                } else {
-//                    pageIndex++;
-//                }
-//                adapter.notifyDataSetChanged();
-//            }
-//        });
+        footViewHolder.tv_refresh.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(maxPage <= 1){
+                    return;
+                }
+                if (pageIndex == maxPage - 1) {
+                    pageIndex = 0;
+                } else {
+                    pageIndex++;
+                }
+                adapter.notifyDataSetChanged();
+            }
+        });
     }
 
     @Override
@@ -211,8 +209,8 @@ public class HomeMovieSection extends StatelessSection{
             int parentPadingpx = itemView.getContext().getResources().getDimensionPixelSize(R.dimen.x9);
             item_container.setPadding(padingpx,padingpx,padingpx,padingpx);
             ViewGroup.LayoutParams layoutParams = grid_item_img.getLayoutParams();
-            layoutParams.width = (App.SCREEN_WIDTH - 4*padingpx - 2*parentPadingpx)/2;
-            layoutParams.height = layoutParams.width/16*9;
+            layoutParams.width = (App.SCREEN_WIDTH - 6*padingpx - 2*parentPadingpx)/3;
+            layoutParams.height = layoutParams.width/3*4;
             grid_item_img.setLayoutParams(layoutParams);
         }
     }

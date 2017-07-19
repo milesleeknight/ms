@@ -7,15 +7,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.UUID;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * Created by miles on 2017/6/22 0022.
  */
-
 public class SectionedRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
     public final static int VIEW_TYPE_HEADER = 0;
     public final static int VIEW_TYPE_FOOTER = 1;
@@ -28,13 +27,15 @@ public class SectionedRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerV
     public final static int VIEW_TYPE_NEWS = 4;
 
     private LinkedHashMap<String, Section> sections;
-    private HashMap<String, Integer> sectionViewTypeNumbers;
+
+    private ConcurrentHashMap<String, Integer> sectionViewTypeNumbers;
+
     private int viewTypeCount = 0;
     private final static int VIEW_TYPE_QTY = 6;
 
     public SectionedRecyclerViewAdapter() {
         sections = new LinkedHashMap<>();
-        sectionViewTypeNumbers = new HashMap<>();
+        sectionViewTypeNumbers = new ConcurrentHashMap<>();
     }
 
     @Override
@@ -63,6 +64,14 @@ public class SectionedRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerV
                         viewHolder = getItemViewHolder(parent, section);
                         break;
                     }
+                    //                    case VIEW_TYPE_LOADING: {
+                    //                        viewHolder = getLoadingViewHolder(parent, section);
+                    //                        break;
+                    //                    }
+                    //                    case VIEW_TYPE_FAILED: {
+                    //                        viewHolder = getFailedViewHolder(parent, section);
+                    //                        break;
+                    //                    }
                     default:
                         throw new IllegalArgumentException("Invalid viewType");
                 }
@@ -73,8 +82,7 @@ public class SectionedRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerV
     }
 
     private RecyclerView.ViewHolder getItemViewHolder(ViewGroup parent, Section section) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(section.getItemResourceId(),
-                parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(section.getItemResourceId(), parent, false);
         // get the item viewholder from the section
         return section.getItemViewHolder(view);
     }
@@ -148,7 +156,7 @@ public class SectionedRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerV
     }
 
     /**
-     * Return the section with the tag provided.
+     * Return the section with the tag provided
      *
      * @param tag unique identifier of the section
      * @return section
