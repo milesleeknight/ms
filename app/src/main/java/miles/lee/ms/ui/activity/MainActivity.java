@@ -14,6 +14,9 @@ import miles.lee.ms.R;
 import miles.lee.ms.http.response.AppUpdateResponse;
 import miles.lee.ms.ui.PresenterActivity;
 import miles.lee.ms.ui.adapter.MainVpAdapter;
+import miles.lee.ms.ui.fragment.ForshareFragment;
+import miles.lee.ms.ui.fragment.MainDirectBroadcastFragment;
+import miles.lee.ms.ui.fragment.MainMyselfFragment;
 import miles.lee.ms.ui.fragment.MainRecommendFragment;
 import miles.lee.ms.ui.presenter.MainPresenter;
 import miles.lee.ms.ui.presenter.contract.MainContract;
@@ -60,7 +63,8 @@ public class MainActivity extends PresenterActivity<MainPresenter> implements Bo
                 .setTabSelectedListener(this)
                 .initialise();
         final String[] fnames = {
-                MainRecommendFragment.class.getName()
+                MainRecommendFragment.class.getName(), MainDirectBroadcastFragment.class.getName(),
+                ForshareFragment.class.getName(), MainMyselfFragment.class.getName()
         };
         MainVpAdapter adapter = new MainVpAdapter(getSupportFragmentManager(),this,fnames);
         mViewPager.setOffscreenPageLimit(3);

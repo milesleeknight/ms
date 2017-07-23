@@ -47,7 +47,7 @@ public final class SmiClient{
     }
 
     public static VodService getVodApi(){
-        return createApi(VodService.class, UrlConstant.VOD_URL);
+        return createApi(VodService.class, UrlConstant.VOD_URL_CHANGSHA);
     }
 
     private static void initOkHttpClient(){
