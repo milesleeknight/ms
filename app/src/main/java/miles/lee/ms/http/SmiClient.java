@@ -45,9 +45,11 @@ public final class SmiClient{
                 .build();
         return retrofit.create(clazz);
     }
-
     public static VodService getVodApi(){
-        return createApi(VodService.class, UrlConstant.VOD_URL_CHANGSHA);
+        return createApi(VodService.class, UrlConstant.VOD_URL);
+    }
+    public static PersonService getPersonApi(){
+        return createApi(PersonService.class,UrlConstant.PERSON_URL);
     }
 
     private static void initOkHttpClient(){

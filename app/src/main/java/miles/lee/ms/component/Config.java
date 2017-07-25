@@ -57,4 +57,8 @@ public class Config{
         public static final int POS_BANNER = 101;
         public static final int POS_LOOP_IMG = 102;
     }
+    public static class LoginType{
+        public static final String ACCOUNT = "0";
+        public static final String AUTH = "1";
+    }
 }

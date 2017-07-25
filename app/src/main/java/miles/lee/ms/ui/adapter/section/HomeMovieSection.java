@@ -20,6 +20,7 @@ import miles.lee.ms.R;
 import miles.lee.ms.component.Config;
 import miles.lee.ms.model.CategoryItem;
 import miles.lee.ms.model.ContentItem;
+import miles.lee.ms.ui.activity.VDetailActivity;
 import miles.lee.ms.utils.LogUtil;
 
 /**
@@ -33,6 +34,7 @@ public class HomeMovieSection extends StatelessSection{
     private  int maxPage;
     private int pageIndex;
     private int pageSize = 6;
+    private boolean hasFresh;
 
     public HomeMovieSection(CategoryItem item, Context context, boolean isFirstChannel){
         super(R.layout.section_movie_header,R.layout.section_movie_footer,R.layout.section_movie_item);
@@ -41,6 +43,7 @@ public class HomeMovieSection extends StatelessSection{
         }
         this.mContext = context;
         this.item = item;
+        this.hasFresh= isFirstChannel;
         maxPage = (int) Math.ceil((double) item.getPage().size() / pageSize);// 算出总共分页，取大的值
     }
 
@@ -104,20 +107,20 @@ public class HomeMovieSection extends StatelessSection{
         }else{
             itemViewHolder.grid_item_right_tv.setText("已更新至" + contentBean.getSubNum() + "集");
         }
-//        itemViewHolder.item_container.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                VDetailActivity.launch(mContext,contentBean.contentId,0);
-//            }
-//        });
+        itemViewHolder.item_container.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                VDetailActivity.launch(mContext,contentBean.getContentId(),0);
+            }
+        });
     }
 
     @Override
     public void onBindFooterViewHolder(RecyclerView.ViewHolder holder){
         super.onBindFooterViewHolder(holder);
         FootViewHolder footViewHolder = (FootViewHolder) holder;
-//        footViewHolder.line.setVisibility(hasRefresh ? View.VISIBLE : View.GONE);
-//        footViewHolder.tv_refresh.setVisibility(hasRefresh ? View.VISIBLE : View.GONE);
+        footViewHolder.line.setVisibility(hasFresh ? View.VISIBLE : View.GONE);
+        footViewHolder.tv_refresh.setVisibility(hasFresh ? View.VISIBLE : View.GONE);
 //        footViewHolder.tv_more.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
