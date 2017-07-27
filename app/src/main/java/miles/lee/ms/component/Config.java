@@ -9,6 +9,11 @@ import miles.lee.ms.App;
  */
 
 public class Config{
+    //缓存类型
+    public static class ACacheType{
+        public static final String USER_INFO = "cache_userinfo";       //用户信息
+
+    }
     //Http请求后返回的code
     public static class HttpType {
         public static final String HTTP_SUCCESS = "N000000";      //成功返回数据

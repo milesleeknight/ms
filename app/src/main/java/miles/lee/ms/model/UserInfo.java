@@ -1,12 +1,13 @@
 package miles.lee.ms.model;
 
+import java.io.Serializable;
+
 /**
  * Created by miles on 2017/7/24 0024.
  */
 
-public class UserInfo{
-    private static final long serialVersionUID = 7981560250804078637l;
-
+public class UserInfo implements Serializable {
+    private static final long serialVersionUID = -4406640782580533638L;
     private String userId;
     private String userAccount;
     private String userName;

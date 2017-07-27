@@ -1,5 +1,6 @@
 package miles.lee.ms.ui.presenter;
 
+import android.content.Context;
 import android.content.DialogInterface;
 
 import org.reactivestreams.Publisher;
@@ -19,6 +20,7 @@ import miles.lee.ms.http.SmiClient;
 import miles.lee.ms.http.exception.ApiException;
 import miles.lee.ms.http.exception.EmptyDataException;
 import miles.lee.ms.http.response.BaseResponse;
+import miles.lee.ms.manager.UserInfoManager;
 import miles.lee.ms.model.UserInfo;
 import miles.lee.ms.ui.presenter.contract.LoginContract;
 import miles.lee.ms.utils.RxUtil;
@@ -33,6 +35,10 @@ public class LoginPresenter extends RxPresenter<LoginContract.View> implements L
         .Presenter{
 
     private Disposable mLoginDisposable;
+    private Context mContext;
+    public LoginPresenter(Context context){
+        mContext = context;
+    }
 
     @Override
     public void loginFromAccunt(String account, String pwd){
@@ -75,7 +81,6 @@ public class LoginPresenter extends RxPresenter<LoginContract.View> implements L
                             @Override
                             public void onDismiss(DialogInterface dialog){
                                 removeSubscribe(mLoginDisposable);
-
                             }
                         });
                     }
@@ -84,7 +89,7 @@ public class LoginPresenter extends RxPresenter<LoginContract.View> implements L
                     @Override
                     public void onNext(UserInfo userInfo){
                         view.dismissLoadingDialog();
-
+                        UserInfoManager.getInstance().setUserInfo(userInfo,UserInfoManager.USERINFO_LOGIN);
                     }
 
                     @Override
