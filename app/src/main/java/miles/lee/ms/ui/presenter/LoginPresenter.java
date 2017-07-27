@@ -11,7 +11,7 @@ public class LoginPresenter extends RxPresenter<LoginContract.View> implements L
 
     @Override
     public void loginFromAccunt(String account, String pwd){
-        
+
     }
 
     @Override
