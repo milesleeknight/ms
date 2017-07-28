@@ -15,4 +15,24 @@
         
         <!--<item name="android:windowIsTranslucent">true</item>-->
     </style>
+    <style name="MyselfTitle">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">17sp</item>
+        <item name="android:layout_centerInParent">true</item>
+    </style>
+    <style name="MyselfTopText">
+        <item name="android:textColor">#00addd</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+    <style name="MyselfText">
+        <item name="android:textSize">@dimen/x45</item>
+        <item name="android:textColor">#666666</item>
+    </style>
+    <style name="MyselfSubmitButton">
+        <item name="android:layout_width">@dimen/x716</item>
+        <item name="android:layout_height">@dimen/y123</item>
+        <item name="android:background">@drawable/select_btn_login</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">@dimen/x45</item>
+    </style>
 </resources>
