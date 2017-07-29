@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="no_net">当前网络不可用~</string>
+    <string name="tips_not_wifi">您当前正在使用移动网络，继续播放将消耗流量</string>
+    <string name="tips_not_wifi_confirm">继续播放</string>
+    <string name="tips_not_wifi_cancel">停止播放</string>
+    <string name="no_url">播放地址无效</string>
+    <string name="continue_view">继续观看</string>
+    <string name="last_view_point">您上次观看到%1$s</string>
+    <string name="click_to_share">点击分享</string>
+    <string name="reload">重新加载</string>
+    <string name="shot_fail">截图失败</string>
+    <string name="decoder_settings">解码设置</string>
+    <string name="decoder_settings_title">解码设置(设置后下一次播放生效)</string>
+    <string name="play_settings">播放设置</string>
+</resources>

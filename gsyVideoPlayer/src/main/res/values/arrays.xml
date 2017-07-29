@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="decoder_array">
+        <item>软件解码</item>
+        <item>硬解加速</item>
+    </array>
+    <string-array name="play_setting_array">
+        <item>无</item>
+        <item>自动连播</item>
+    </string-array>
+</resources>

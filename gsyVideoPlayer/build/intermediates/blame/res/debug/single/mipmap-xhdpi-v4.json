@@ -1,0 +1,70 @@
+[
+    {
+        "merged": "F:\\develop\\ms\\gsyVideoPlayer\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi-v4\\ic_player_dlna.png",
+        "source": "F:\\develop\\ms\\gsyVideoPlayer\\src\\main\\res\\mipmap-xhdpi\\ic_player_dlna.png"
+    },
+    {
+        "merged": "F:\\develop\\ms\\gsyVideoPlayer\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi-v4\\ic_volume_off.png",
+        "source": "F:\\develop\\ms\\gsyVideoPlayer\\src\\main\\res\\mipmap-xhdpi\\ic_volume_off.png"
+    },
+    {
+        "merged": "F:\\develop\\ms\\gsyVideoPlayer\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi-v4\\shading.png",
+        "source": "F:\\develop\\ms\\gsyVideoPlayer\\src\\main\\res\\mipmap-xhdpi\\shading.png"
+    },
+    {
+        "merged": "F:\\develop\\ms\\gsyVideoPlayer\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi-v4\\ic_fullscreen.png",
+        "source": "F:\\develop\\ms\\gsyVideoPlayer\\src\\main\\res\\mipmap-xhdpi\\ic_fullscreen.png"
+    },
+    {
+        "merged": "F:\\develop\\ms\\gsyVideoPlayer\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi-v4\\ic_brightness.png",
+        "source": "F:\\develop\\ms\\gsyVideoPlayer\\src\\main\\res\\mipmap-xhdpi\\ic_brightness.png"
+    },
+    {
+        "merged": "F:\\develop\\ms\\gsyVideoPlayer\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi-v4\\ic_ellipsis.png",
+        "source": "F:\\develop\\ms\\gsyVideoPlayer\\src\\main\\res\\mipmap-xhdpi\\ic_ellipsis.png"
+    },
+    {
+        "merged": "F:\\develop\\ms\\gsyVideoPlayer\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi-v4\\seek_cursor.png",
+        "source": "F:\\develop\\ms\\gsyVideoPlayer\\src\\main\\res\\mipmap-xhdpi\\seek_cursor.png"
+    },
+    {
+        "merged": "F:\\develop\\ms\\gsyVideoPlayer\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi-v4\\ic_narrow.png",
+        "source": "F:\\develop\\ms\\gsyVideoPlayer\\src\\main\\res\\mipmap-xhdpi\\ic_narrow.png"
+    },
+    {
+        "merged": "F:\\develop\\ms\\gsyVideoPlayer\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi-v4\\ic_cancel_fork.png",
+        "source": "F:\\develop\\ms\\gsyVideoPlayer\\src\\main\\res\\mipmap-xhdpi\\ic_cancel_fork.png"
+    },
+    {
+        "merged": "F:\\develop\\ms\\gsyVideoPlayer\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi-v4\\ic_next.png",
+        "source": "F:\\develop\\ms\\gsyVideoPlayer\\src\\main\\res\\mipmap-xhdpi\\ic_next.png"
+    },
+    {
+        "merged": "F:\\develop\\ms\\gsyVideoPlayer\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi-v4\\ic_stop.png",
+        "source": "F:\\develop\\ms\\gsyVideoPlayer\\src\\main\\res\\mipmap-xhdpi\\ic_stop.png"
+    },
+    {
+        "merged": "F:\\develop\\ms\\gsyVideoPlayer\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi-v4\\ic_play_arrow.png",
+        "source": "F:\\develop\\ms\\gsyVideoPlayer\\src\\main\\res\\mipmap-xhdpi\\ic_play_arrow.png"
+    },
+    {
+        "merged": "F:\\develop\\ms\\gsyVideoPlayer\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi-v4\\ic_player_share.png",
+        "source": "F:\\develop\\ms\\gsyVideoPlayer\\src\\main\\res\\mipmap-xhdpi\\ic_player_share.png"
+    },
+    {
+        "merged": "F:\\develop\\ms\\gsyVideoPlayer\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi-v4\\ic_volume.png",
+        "source": "F:\\develop\\ms\\gsyVideoPlayer\\src\\main\\res\\mipmap-xhdpi\\ic_volume.png"
+    },
+    {
+        "merged": "F:\\develop\\ms\\gsyVideoPlayer\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi-v4\\ic_scissors.png",
+        "source": "F:\\develop\\ms\\gsyVideoPlayer\\src\\main\\res\\mipmap-xhdpi\\ic_scissors.png"
+    },
+    {
+        "merged": "F:\\develop\\ms\\gsyVideoPlayer\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi-v4\\ic_fullscreen_exit.png",
+        "source": "F:\\develop\\ms\\gsyVideoPlayer\\src\\main\\res\\mipmap-xhdpi\\ic_fullscreen_exit.png"
+    },
+    {
+        "merged": "F:\\develop\\ms\\gsyVideoPlayer\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi-v4\\ic_chevron_left.png",
+        "source": "F:\\develop\\ms\\gsyVideoPlayer\\src\\main\\res\\mipmap-xhdpi\\ic_chevron_left.png"
+    }
+]

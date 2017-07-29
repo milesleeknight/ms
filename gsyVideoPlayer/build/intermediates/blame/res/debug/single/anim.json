@@ -1,0 +1,54 @@
+[
+    {
+        "merged": "F:\\develop\\ms\\gsyVideoPlayer\\build\\intermediates\\res\\merged\\debug\\anim\\shot_fade_out.xml",
+        "source": "F:\\develop\\ms\\gsyVideoPlayer\\src\\main\\res\\anim\\shot_fade_out.xml"
+    },
+    {
+        "merged": "F:\\develop\\ms\\gsyVideoPlayer\\build\\intermediates\\res\\merged\\debug\\anim\\abc_popup_enter.xml",
+        "source": "F:\\develop\\ms\\gsyVideoPlayer\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\anim\\abc_popup_enter.xml"
+    },
+    {
+        "merged": "F:\\develop\\ms\\gsyVideoPlayer\\build\\intermediates\\res\\merged\\debug\\anim\\abc_shrink_fade_out_from_bottom.xml",
+        "source": "F:\\develop\\ms\\gsyVideoPlayer\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\anim\\abc_shrink_fade_out_from_bottom.xml"
+    },
+    {
+        "merged": "F:\\develop\\ms\\gsyVideoPlayer\\build\\intermediates\\res\\merged\\debug\\anim\\abc_grow_fade_in_from_bottom.xml",
+        "source": "F:\\develop\\ms\\gsyVideoPlayer\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\anim\\abc_grow_fade_in_from_bottom.xml"
+    },
+    {
+        "merged": "F:\\develop\\ms\\gsyVideoPlayer\\build\\intermediates\\res\\merged\\debug\\anim\\abc_fade_in.xml",
+        "source": "F:\\develop\\ms\\gsyVideoPlayer\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\anim\\abc_fade_in.xml"
+    },
+    {
+        "merged": "F:\\develop\\ms\\gsyVideoPlayer\\build\\intermediates\\res\\merged\\debug\\anim\\abc_slide_in_bottom.xml",
+        "source": "F:\\develop\\ms\\gsyVideoPlayer\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\anim\\abc_slide_in_bottom.xml"
+    },
+    {
+        "merged": "F:\\develop\\ms\\gsyVideoPlayer\\build\\intermediates\\res\\merged\\debug\\anim\\resolution_pop_out.xml",
+        "source": "F:\\develop\\ms\\gsyVideoPlayer\\src\\main\\res\\anim\\resolution_pop_out.xml"
+    },
+    {
+        "merged": "F:\\develop\\ms\\gsyVideoPlayer\\build\\intermediates\\res\\merged\\debug\\anim\\abc_slide_in_top.xml",
+        "source": "F:\\develop\\ms\\gsyVideoPlayer\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\anim\\abc_slide_in_top.xml"
+    },
+    {
+        "merged": "F:\\develop\\ms\\gsyVideoPlayer\\build\\intermediates\\res\\merged\\debug\\anim\\abc_popup_exit.xml",
+        "source": "F:\\develop\\ms\\gsyVideoPlayer\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\anim\\abc_popup_exit.xml"
+    },
+    {
+        "merged": "F:\\develop\\ms\\gsyVideoPlayer\\build\\intermediates\\res\\merged\\debug\\anim\\resolution_pop_in.xml",
+        "source": "F:\\develop\\ms\\gsyVideoPlayer\\src\\main\\res\\anim\\resolution_pop_in.xml"
+    },
+    {
+        "merged": "F:\\develop\\ms\\gsyVideoPlayer\\build\\intermediates\\res\\merged\\debug\\anim\\abc_slide_out_top.xml",
+        "source": "F:\\develop\\ms\\gsyVideoPlayer\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\anim\\abc_slide_out_top.xml"
+    },
+    {
+        "merged": "F:\\develop\\ms\\gsyVideoPlayer\\build\\intermediates\\res\\merged\\debug\\anim\\abc_fade_out.xml",
+        "source": "F:\\develop\\ms\\gsyVideoPlayer\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\anim\\abc_fade_out.xml"
+    },
+    {
+        "merged": "F:\\develop\\ms\\gsyVideoPlayer\\build\\intermediates\\res\\merged\\debug\\anim\\abc_slide_out_bottom.xml",
+        "source": "F:\\develop\\ms\\gsyVideoPlayer\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\anim\\abc_slide_out_bottom.xml"
+    }
+]

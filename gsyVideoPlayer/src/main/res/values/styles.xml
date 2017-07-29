@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="resolution_pop_anim">
+        <item name="android:windowEnterAnimation">@anim/resolution_pop_in</item>
+        <item name="android:windowExitAnimation">@anim/resolution_pop_out</item>
+    </style>
+</resources>

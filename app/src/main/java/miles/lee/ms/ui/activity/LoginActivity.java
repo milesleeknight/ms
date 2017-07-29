@@ -1,5 +1,6 @@
 package miles.lee.ms.ui.activity;
 
+import android.app.Dialog;
 import android.content.DialogInterface;
 import android.view.View;
 import android.widget.Button;
@@ -14,6 +15,7 @@ import miles.lee.ms.R;
 import miles.lee.ms.ui.PresenterActivity;
 import miles.lee.ms.ui.presenter.LoginPresenter;
 import miles.lee.ms.ui.presenter.contract.LoginContract;
+import miles.lee.ms.utils.Tips;
 
 /**
  * Created by Administrator on 2017/7/22 0022.
@@ -59,9 +61,12 @@ public class LoginActivity extends PresenterActivity<LoginPresenter> implements 
     RelativeLayout rl_code_login;
     @BindView(R.id.rl_password_login)
     RelativeLayout rl_password_login;
-    @Override
 
+    private Dialog mDialog;
+
+    @Override
     public void showError(String msg){
+        Tips.showShortToast(msg);
     }
 
     @Override
@@ -81,6 +86,7 @@ public class LoginActivity extends PresenterActivity<LoginPresenter> implements 
 
     @Override
     public void showDialog(String msg, DialogInterface.OnDismissListener onDismissListener){
+        mDialog
     }
 
     @Override

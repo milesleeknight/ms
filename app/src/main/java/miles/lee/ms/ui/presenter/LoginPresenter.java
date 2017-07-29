@@ -73,7 +73,10 @@ public class LoginPresenter extends RxPresenter<LoginContract.View> implements L
                                     .getMessage()));
                         }
                     }
-                }).compose(RxUtil.<UserInfo>rxSchedulerHelper())
+
+                })
+
+                .compose(RxUtil.<UserInfo>rxSchedulerHelper())
                 .doOnSubscribe(new Consumer<Subscription>(){
                     @Override
                     public void accept(@NonNull Subscription subscription) throws Exception{
