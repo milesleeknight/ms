@@ -35,4 +35,9 @@
         <item name="android:textColor">@android:color/white</item>
         <item name="android:textSize">@dimen/x45</item>
     </style>
+    
+    <style name="arlert">
+        <item name = "android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@null</item>
+    </style>
 </resources>

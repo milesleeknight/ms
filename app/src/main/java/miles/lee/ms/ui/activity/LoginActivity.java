@@ -15,6 +15,7 @@ import miles.lee.ms.R;
 import miles.lee.ms.ui.PresenterActivity;
 import miles.lee.ms.ui.presenter.LoginPresenter;
 import miles.lee.ms.ui.presenter.contract.LoginContract;
+import miles.lee.ms.ui.widget.LoadingDialog;
 import miles.lee.ms.utils.Tips;
 
 /**
@@ -86,7 +87,8 @@ public class LoginActivity extends PresenterActivity<LoginPresenter> implements 
 
     @Override
     public void showDialog(String msg, DialogInterface.OnDismissListener onDismissListener){
-        mDialog
+        mDialog = LoadingDialog.createDialog(this,msg,true);
+        mDialog.show();
     }
 
     @Override
