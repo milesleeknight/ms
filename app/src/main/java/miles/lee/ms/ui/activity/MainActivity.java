@@ -1,6 +1,5 @@
 package miles.lee.ms.ui.activity;
 
-import android.util.SparseBooleanArray;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.TextView;
@@ -14,8 +13,6 @@ import miles.lee.ms.R;
 import miles.lee.ms.http.response.AppUpdateResponse;
 import miles.lee.ms.ui.PresenterActivity;
 import miles.lee.ms.ui.adapter.MainVpAdapter;
-import miles.lee.ms.ui.fragment.ForshareFragment;
-import miles.lee.ms.ui.fragment.MainDirectBroadcastFragment;
 import miles.lee.ms.ui.fragment.MainMyselfFragment;
 import miles.lee.ms.ui.fragment.MainRecommendFragment;
 import miles.lee.ms.ui.presenter.MainPresenter;
@@ -63,8 +60,8 @@ public class MainActivity extends PresenterActivity<MainPresenter> implements Bo
                 .setTabSelectedListener(this)
                 .initialise();
         final String[] fnames = {
-                MainRecommendFragment.class.getName(), MainDirectBroadcastFragment.class.getName(),
-                ForshareFragment.class.getName(), MainMyselfFragment.class.getName()
+                MainRecommendFragment.class.getName(), MainRecommendFragment.class.getName(),
+                MainRecommendFragment.class.getName(), MainMyselfFragment.class.getName()
         };
         MainVpAdapter adapter = new MainVpAdapter(getSupportFragmentManager(),this,fnames);
         mViewPager.setOffscreenPageLimit(3);
@@ -79,7 +76,7 @@ public class MainActivity extends PresenterActivity<MainPresenter> implements Bo
 
     @Override
     public void onTabSelected(int position){
-
+        mViewPager.setCurrentItem(position,false);
     }
 
     @Override
@@ -90,7 +87,6 @@ public class MainActivity extends PresenterActivity<MainPresenter> implements Bo
                 LogUtil.d("onTrimMemory");
                 break;
         }
-        SparseBooleanArray array = new SparseBooleanArray();
     }
 
     @Override

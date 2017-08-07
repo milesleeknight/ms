@@ -1,7 +1,9 @@
 package miles.lee.ms.ui.activity;
 
 import android.app.Dialog;
+import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -64,6 +66,7 @@ public class LoginActivity extends PresenterActivity<LoginPresenter> implements 
     RelativeLayout rl_password_login;
 
     private Dialog mDialog;
+    private Intent mSecIntent;
 
     @Override
     public void showError(String msg){
@@ -75,9 +78,17 @@ public class LoginActivity extends PresenterActivity<LoginPresenter> implements 
         mPresenter = new LoginPresenter(this);
     }
 
+    public static void lauch(Context context ,Intent intent){
+        Intent loginIntent = new Intent(context,LoginActivity.class);
+        if(intent != null){
+            loginIntent.putExtra("second",intent);
+        }
+        context.startActivity(loginIntent);
+    }
+
     @Override
     protected void initEventAndData(){
-
+        mSecIntent = new Intent();
     }
 
     @Override
@@ -93,7 +104,9 @@ public class LoginActivity extends PresenterActivity<LoginPresenter> implements 
 
     @Override
     public void dismissLoadingDialog(){
-
+        if(mDialog != null){
+            mDialog.dismiss();
+        }
     }
 
     @OnClick({R.id.tv_pw_login,R.id.tv_code_login,R.id.iv_show_pw,R.id.btn_authcode,R.id.tv_regist
@@ -106,6 +119,7 @@ public class LoginActivity extends PresenterActivity<LoginPresenter> implements 
                 break;
             case R.id.tv_regist:
                 // TODO: 2017/7/28 0028
+                startActivity(new Intent(LoginActivity.this,RegistActivity.class));
                 break;
             case R.id.btn_login:
                 String account = et_account.getText().toString();
@@ -113,6 +127,15 @@ public class LoginActivity extends PresenterActivity<LoginPresenter> implements 
                 mPresenter.loginFromAccunt(account,pwd);
                 break;
         }
+    }
+
+    @Override
+    public void toFinish(){
+        dismissLoadingDialog();
+        if(mSecIntent != null){
+            startActivity(mSecIntent);
+        }
+        finish();
     }
 }
 

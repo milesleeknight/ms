@@ -10,7 +10,7 @@ import okhttp3.internal.platform.Platform;
 
 public interface LoginContract{
     interface View extends LoadingBaseView{
-
+        void toFinish();
     }
     interface Presenter extends BasePresenter<View>{
         void loginFromAccunt(String account,String pwd);

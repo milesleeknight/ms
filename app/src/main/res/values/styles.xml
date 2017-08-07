@@ -36,8 +36,13 @@
         <item name="android:textSize">@dimen/x45</item>
     </style>
     
-    <style name="arlert">
-        <item name = "android:windowNoTitle">true</item>
-        <item name="android:windowBackground">@null</item>
+    <style name="arlert" parent="@android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:backgroundDimEnabled">false</item>
+        <item name="android:windowContentOverlay">@null</item>
     </style>
 </resources>

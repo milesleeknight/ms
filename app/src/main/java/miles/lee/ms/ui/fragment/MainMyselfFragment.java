@@ -9,6 +9,7 @@ import miles.lee.ms.ui.presenter.MainRecPresenter;
  */
 
 public class MainMyselfFragment extends PresenterFragment<MainRecPresenter>{
+
     @Override
     protected void initEventAndData(){
     }
@@ -19,10 +20,11 @@ public class MainMyselfFragment extends PresenterFragment<MainRecPresenter>{
 
     @Override
     protected int getLayoutRes(){
-        return R.layout.loading_view;
+        return R.layout.frg_mine;
     }
 
     @Override
     public void showError(String msg){
+
     }
 }

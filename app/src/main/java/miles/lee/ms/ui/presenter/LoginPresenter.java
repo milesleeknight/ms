@@ -14,7 +14,6 @@ import io.reactivex.annotations.NonNull;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Consumer;
 import io.reactivex.functions.Function;
-import io.reactivex.subscribers.ResourceSubscriber;
 import miles.lee.ms.component.Config;
 import miles.lee.ms.http.SmiClient;
 import miles.lee.ms.http.exception.ApiException;
@@ -87,17 +86,16 @@ public class LoginPresenter extends RxPresenter<LoginContract.View> implements L
                             }
                         });
                     }
-                })
-                .subscribeWith(new ResourceSubscriber<UserInfo>(){
+                }).subscribe(new Consumer<UserInfo>(){
                     @Override
-                    public void onNext(UserInfo userInfo){
+                    public void accept(@NonNull UserInfo userInfo) throws Exception{
                         view.dismissLoadingDialog();
-                        UserInfoManager.getInstance().setUserInfo(userInfo,UserInfoManager.USERINFO_LOGIN);
-                    }
+                        UserInfoManager.getInstance().setUserInfo(userInfo, UserInfoManager.USERINFO_LOGIN);
 
+                    }
+                }, new Consumer<Throwable>(){
                     @Override
-                    public void onError(Throwable e){
-                        e.printStackTrace();
+                    public void accept(@NonNull Throwable e) throws Exception{
                         if (view != null){
                            if (e instanceof ApiException) {
                                 view.showError(e.getMessage());
@@ -108,13 +106,39 @@ public class LoginPresenter extends RxPresenter<LoginContract.View> implements L
                             } else {
                                 view.showError("出错啦!ヽ(≧Д≦)ノ");
                             }
+                            view.dismissLoadingDialog();
                         }
                     }
-
-                    @Override
-                    public void onComplete(){
-                    }
                 });
+//                .subscribeWith(new ResourceSubscriber<UserInfo>(){
+//                    @Override
+//                    public void onNext(UserInfo userInfo){
+//                        view.dismissLoadingDialog();
+//                        UserInfoManager.getInstance().setUserInfo(userInfo,UserInfoManager.USERINFO_LOGIN);
+//
+//                    }
+//
+//                    @Override
+//                    public void onError(Throwable e){
+//                        e.printStackTrace();
+//                        if (view != null){
+//                           if (e instanceof ApiException) {
+//                                view.showError(e.getMessage());
+//                            } else if (e instanceof EmptyDataException) {
+//                                view.showError(e.getMessage());
+//                            } else if (e instanceof HttpException) {
+//                                view.showError("数据加载失败ヽ(≧Д≦)ノ");
+//                            } else {
+//                                view.showError("出错啦!ヽ(≧Д≦)ノ");
+//                            }
+//                            view.dismissLoadingDialog();
+//                        }
+//                    }
+//
+//                    @Override
+//                    public void onComplete(){
+//                    }
+//                });
         addSubscribe(mLoginDisposable);
     }
 

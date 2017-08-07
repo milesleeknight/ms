@@ -2,8 +2,11 @@ package miles.lee.ms.ui.widget;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -21,10 +24,12 @@ public class LoadingDialog{
         View view = inflater.inflate(R.layout.dialog_loading,null);
         TextView tvMsg = (TextView) view.findViewById(R.id.tv_message);
         ProgressBar progressBar = (ProgressBar) view.findViewById(R.id.progresbar);
-
+        progressBar.getIndeterminateDrawable().setColorFilter(
+                Color.parseColor("#fb2799"), PorterDuff.Mode.DST_IN);
         tvMsg.setText(msg);
         dialog.setCancelable(cancelable);
-        dialog.setContentView(view);
+        dialog.setContentView(view,new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT
+                ,LinearLayout.LayoutParams.MATCH_PARENT));
 
         return dialog;
     }

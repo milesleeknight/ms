@@ -46,10 +46,10 @@ public final class SmiClient{
         return retrofit.create(clazz);
     }
     public static VodService getVodApi(){
-        return createApi(VodService.class, UrlConstant.VOD_URL);
+        return createApi(VodService.class, UrlConstant.VOD_URL_CHANGSHA);
     }
     public static PersonService getPersonApi(){
-        return createApi(PersonService.class,UrlConstant.PERSON_URL);
+        return createApi(PersonService.class,UrlConstant.PERSON_URL_CHANGSHA);
     }
 
     private static void initOkHttpClient(){
